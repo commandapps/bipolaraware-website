@@ -1,0 +1,10 @@
+{
+  "name": "bipolaraware-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Marketing site for BipolarAware — bipolaraware.app",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static site — no build step'"
+  }
+}
