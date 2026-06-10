@@ -26,7 +26,7 @@
       <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
         <circle cx="16" cy="16" r="14" fill="none" stroke="#13212B" stroke-width="2"/>
         <path d="M6 20 q4 0 6-3 t6-4" fill="none" stroke="#1AA396" stroke-width="2.2" stroke-linecap="round"/>
-        <circle cx="24" cy="11" r="2.6" fill="#EC9A6A"/>
+        <circle cx="24" cy="11" r="2.6" fill="#D9657A"/>
       </svg>
       <span>Bipolar<b>Aware</b></span>
     </a>
@@ -75,7 +75,7 @@
               <stop offset="1" stop-color="#1AA396"/>
             </linearGradient>
             <linearGradient id="coneGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#EC9A6A" stop-opacity="0.20"/>
+              <stop offset="0" stop-color="#D9657A" stop-opacity="0.20"/>
               <stop offset="0.5" stop-color="#1AA396" stop-opacity="0.16"/>
               <stop offset="1" stop-color="#1AA396" stop-opacity="0.05"/>
             </linearGradient>
@@ -135,7 +135,7 @@
         </div>
         <div class="lcard reveal">
           <p class="ph">It does this</p>
-          <svg class="ic" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 7v9M20 25v.5" stroke="#1AA396" stroke-width="2.4" stroke-linecap="round"/><path d="M9 31c2-7 5-11 11-11s9 4 11 11" stroke="#EC9A6A" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <svg class="ic" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 7v9M20 25v.5" stroke="#1AA396" stroke-width="2.4" stroke-linecap="round"/><path d="M9 31c2-7 5-11 11-11s9 4 11 11" stroke="#D9657A" stroke-width="2.4" stroke-linecap="round"/></svg>
           <h3>It flags, gently</h3>
           <p>When several signals drift from your baseline together, it gives a supportive heads-up — specific enough to act on, never an alarm or a diagnosis.</p>
         </div>
@@ -147,7 +147,7 @@
         </div>
         <div class="lcard reveal">
           <p class="ph">It does this</p>
-          <svg class="ic" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M30 14a12 12 0 1 0 2 7" stroke="#1AA396" stroke-width="2.4" stroke-linecap="round"/><path d="M32 10v6h-6" stroke="#EC9A6A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="ic" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M30 14a12 12 0 1 0 2 7" stroke="#1AA396" stroke-width="2.4" stroke-linecap="round"/><path d="M32 10v6h-6" stroke="#D9657A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <h3>It learns you</h3>
           <p>Every day refines your baseline. You can confirm or dismiss alerts, and the system adapts — tailoring itself to how your episodes actually show up.</p>
         </div>
@@ -180,7 +180,7 @@
           <p>The shape of your days — when you use your phone, how regular your routine is, and when communication patterns shift.</p>
         </div>
         <div class="sigcard reveal">
-          <svg class="ic" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M8 23c-2 0-4-2-4-5s2-5 5-5c0-3 3-6 7-6s7 3 7 7c3 0 5 2 5 5s-2 4-4 4" stroke="#EC9A6A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="ic" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M8 23c-2 0-4-2-4-5s2-5 5-5c0-3 3-6 7-6s7 3 7 7c3 0 5 2 5 5s-2 4-4 4" stroke="#D9657A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <h3>Your read</h3>
           <p>A quick check-in when you feel like sharing how today landed — it sharpens everything else.</p>
           <span class="opt">Optional</span>
@@ -293,7 +293,7 @@
           <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true">
             <circle cx="16" cy="16" r="14" fill="none" stroke="#13212B" stroke-width="2"/>
             <path d="M6 20 q4 0 6-3 t6-4" fill="none" stroke="#1AA396" stroke-width="2.2" stroke-linecap="round"/>
-            <circle cx="24" cy="11" r="2.6" fill="#EC9A6A"/>
+            <circle cx="24" cy="11" r="2.6" fill="#D9657A"/>
           </svg>
           <span>Bipolar<b>Aware</b></span>
         </a>
@@ -422,9 +422,9 @@
 
   // status copy + LED tint per state
   var states={
-    low:    {bias:-1, main:"Watch",  tint:"#EC9A6A", sub:"Energy's dipped a touch. Rest and a steady routine help most here."},
+    low:    {bias:-1, main:"Watch",  tint:"#D9657A", sub:"Energy's dipped a touch. Rest and a steady routine help most here."},
     steady: {bias:0,  main:"Steady", tint:"#1AA396", sub:"Sleep trending a little earlier — worth a glance, nothing more."},
-    wired:  {bias:1,  main:"Watch",  tint:"#EC9A6A", sub:"Running warm. Protecting tonight's sleep is the highest-leverage move."}
+    wired:  {bias:1,  main:"Watch",  tint:"#D9657A", sub:"Running warm. Protecting tonight's sleep is the highest-leverage move."}
   };
   var led=document.getElementById("led"),sMain=document.getElementById("status-main"),sSub=document.getElementById("status-sub");
   function applyState(key,animate){
@@ -471,7 +471,7 @@
       ev.preventDefault();
       var email=document.getElementById(emailId).value.trim();
       var note=document.getElementById(noteId);
-      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ note.style.color="#C7763F"; note.textContent="Please enter a valid email and we'll take it from there."; return; }
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ note.style.color="var(--ember-deep)"; note.textContent="Please enter a valid email and we'll take it from there."; return; }
       note.style.color="var(--signal-deep)";
       note.textContent="You're on the list. We'll be in touch — thank you for trusting us with this.";
       f.querySelector("input").value="";
