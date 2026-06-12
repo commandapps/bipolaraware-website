@@ -33,6 +33,7 @@
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#how">How it works</a>
+      <a href="#outlook-demo">See it live</a>
       <a href="#watches">What it watches</a>
       <a href="#scout">Scout</a>
       <a href="#trust">Trust &amp; privacy</a>
@@ -63,8 +64,73 @@
         </form>
       </div>
 
-      <!-- SIGNATURE: animated outlook + Scout -->
-      <div class="signal-demo reveal" aria-label="Animated preview of your outlook chart and Scout early-warning message">
+      <!-- SIGNATURE: the outlook -->
+      <div class="scope reveal">
+        <div class="scope-head">
+          <span class="scope-title">Your outlook</span>
+          <span class="scope-tag" id="scope-range">past 21 days · next 10</span>
+        </div>
+        <svg class="scopesvg" id="scope" viewBox="0 0 760 300" preserveAspectRatio="none" role="img" aria-label="A line of your recent days flowing into a forecast of the days ahead.">
+          <defs>
+            <linearGradient id="pastGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#1AA396" stop-opacity="0.55"/>
+              <stop offset="1" stop-color="#1AA396"/>
+            </linearGradient>
+            <linearGradient id="coneGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#D9657A" stop-opacity="0.20"/>
+              <stop offset="0.5" stop-color="#1AA396" stop-opacity="0.16"/>
+              <stop offset="1" stop-color="#1AA396" stop-opacity="0.05"/>
+            </linearGradient>
+          </defs>
+          <g id="grid"></g>
+          <path id="cone" fill="url(#coneGrad)" stroke="none"/>
+          <line id="todayLine" stroke="#ffffff" stroke-opacity="0.18" stroke-width="1" stroke-dasharray="3 5"/>
+          <path id="forecast" fill="none" stroke="#9FE6DD" stroke-width="2.4" stroke-dasharray="2 6" stroke-linecap="round"/>
+          <path id="past" fill="none" stroke="url(#pastGrad)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle id="todayDot" r="6" fill="#fff" stroke="#13212B" stroke-width="3"/>
+          <g id="ticks"></g>
+        </svg>
+
+        <div class="status">
+          <span class="status-led" id="led"></span>
+          <div>
+            <div class="status-main" id="status-main">Steady</div>
+            <div class="status-sub" id="status-sub">Sleep trending a little earlier — worth a glance, nothing more.</div>
+          </div>
+        </div>
+
+        <div class="checkin" role="group" aria-label="Optional check-in: how does today feel?">
+          <span class="lab">Add today</span>
+          <button class="chip" data-state="low" aria-pressed="false">Low</button>
+          <button class="chip" data-state="steady" aria-pressed="true">Steady</button>
+          <button class="chip" data-state="wired" aria-pressed="false">Wired</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLINDSIDE / EMPATHY -->
+  <section class="band">
+    <div class="wrap section" style="padding-bottom:clamp(48px,6vw,80px)">
+      <div class="section-head reveal" style="margin-bottom:0">
+        <p class="eyebrow">The hard part</p>
+        <h2>An episode is far easier to handle early. The early signs are the hardest to see <span style="color:var(--ember)">from the inside.</span></h2>
+        <p class="lead">By the time a shift is obvious, you've often lost the window where small adjustments do the most good. Research shows activity and circadian changes can appear days before a full episode — but they're easy to miss from the inside. BipolarAware exists to surface that drift early, while there's still room to act.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE OUTLOOK DEMO -->
+  <section class="section signal-section" id="outlook-demo">
+    <div class="wrap wrap--wide">
+      <div class="section-head reveal">
+        <p class="eyebrow">See it in action</p>
+        <h2>Your outlook catches drift — Scout explains it.</h2>
+        <p class="lead">Scroll into the loop below: the signal line leans, the forecast widens, status shifts from Steady to Watch, and Scout appears with plain-language readouts against your baseline.</p>
+      </div>
+    </div>
+    <div class="wrap wrap--wide">
+      <div class="signal-demo signal-demo--section reveal" aria-label="Animated preview of your outlook chart and Scout early-warning message">
         <div class="signal-demo__viewport">
           <div class="signal-demo__stage" id="signalStage">
             <section class="card outlook">
@@ -151,17 +217,6 @@
     </div>
   </section>
 
-  <!-- BLINDSIDE / EMPATHY -->
-  <section class="band">
-    <div class="wrap section" style="padding-bottom:clamp(48px,6vw,80px)">
-      <div class="section-head reveal" style="margin-bottom:0">
-        <p class="eyebrow">The hard part</p>
-        <h2>An episode is far easier to handle early. The early signs are the hardest to see <span style="color:var(--ember)">from the inside.</span></h2>
-        <p class="lead">By the time a shift is obvious, you've often lost the window where small adjustments do the most good. Research shows activity and circadian changes can appear days before a full episode — but they're easy to miss from the inside. BipolarAware exists to surface that drift early, while there's still room to act.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- HOW IT WORKS — the loop -->
   <section class="section" id="how">
     <div class="wrap">
@@ -236,16 +291,26 @@
   <!-- SCOUT -->
   <section class="section" id="scout" style="padding-top:0">
     <div class="wrap">
-      <div class="scout-panel reveal scout-panel--single">
+      <div class="scout-panel reveal">
         <div>
           <span class="scout-badge">AI companion · on your device</span>
           <h2>Meet Scout — your vigilant, respectful guide.</h2>
-          <p class="lead">The animation above shows how it works: your outlook catches drift early, then Scout translates the pattern into plain language — with specific readouts against your baseline, not generic thresholds.</p>
+          <p class="lead">BipolarAware watches passively. Scout is the voice that helps you understand what the data means — the live demo above shows how your outlook catches drift and Scout translates it into plain language you can act on.</p>
           <div class="scout-points">
-            <div class="scout-point"><span class="dot"></span><p>Explains why something was flagged — sleep, activity, rhythm — in supportive language you can act on.</p></div>
+            <div class="scout-point"><span class="dot"></span><p>Explains why something was flagged — sleep, activity, rhythm — against your personal baseline, not a generic threshold.</p></div>
             <div class="scout-point"><span class="dot"></span><p>Helps you build a clear trend summary for appointments, so your care team sees objective changes alongside how you feel.</p></div>
-            <div class="scout-point"><span class="dot"></span><p>Never pushes, never diagnoses. Scout appears when patterns shift — you stay in control of every alert and every share.</p></div>
+            <div class="scout-point"><span class="dot"></span><p>Supportive, never alarming. Scout nudges when something seems off — it doesn't diagnose, and you stay in control of every alert.</p></div>
           </div>
+        </div>
+        <div class="scout-card" aria-hidden="true">
+          <p class="who">Scout</p>
+          <p class="tagline">When the outlook needs words.</p>
+          <div class="scout-chat">
+            <div class="scout-bubble scout">Heads up: your sleep and activity patterns look different than usual this week — that can sometimes happen before a mood shift. Worth a glance, not a verdict.</div>
+            <div class="scout-bubble you">What's actually changed?</div>
+            <div class="scout-bubble scout">You've averaged 4½ hours of sleep the last three nights (your baseline is 7), and your step count jumped sharply. Protecting tonight's routine is the highest-leverage move. Want help drafting a note for your clinician?</div>
+          </div>
+          <p class="scout-note">Illustrative example · not medical advice</p>
         </div>
       </div>
     </div>
@@ -337,6 +402,7 @@
         <div class="foot-col">
           <h4>Product</h4>
           <a href="#how">How it works</a>
+          <a href="#outlook-demo">See it live</a>
           <a href="#watches">What it watches</a>
           <a href="#scout">Scout</a>
           <a href="#join">Early access</a>
@@ -378,6 +444,114 @@
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.14,rootMargin:"0px 0px -8% 0px"});
     reveals.forEach(function(el){io.observe(el);});
   } else { reveals.forEach(function(el){el.classList.add("in");}); }
+
+  /* ---------- the outlook instrument ---------- */
+  var W=760,H=300,padX=18,padTop=26,padBot=40;
+  var splitX=W*0.66;
+  var past=[0.52,0.49,0.55,0.5,0.47,0.53,0.5,0.44,0.5,0.55,0.52,0.48,0.5,0.53,0.49,0.46,0.5,0.52,0.5,0.48,0.5];
+  var np=past.length;
+  var xPast=function(i){ return padX + (splitX-padX)*(i/(np-1)); };
+  var yAt=function(v){ return padTop + (H-padTop-padBot)*(1-v); };
+
+  function smooth(pts){
+    if(pts.length<2) return "";
+    var d="M"+pts[0][0].toFixed(1)+","+pts[0][1].toFixed(1);
+    for(var i=0;i<pts.length-1;i++){
+      var p0=pts[i-1]||pts[i],p1=pts[i],p2=pts[i+1],p3=pts[i+2]||p2;
+      var c1x=p1[0]+(p2[0]-p0[0])/6,c1y=p1[1]+(p2[1]-p0[1])/6;
+      var c2x=p2[0]-(p3[0]-p1[0])/6,c2y=p2[1]-(p3[1]-p1[1])/6;
+      d+="C"+c1x.toFixed(1)+","+c1y.toFixed(1)+" "+c2x.toFixed(1)+","+c2y.toFixed(1)+" "+p2[0].toFixed(1)+","+p2[1].toFixed(1);
+    }
+    return d;
+  }
+
+  var pastPts=past.map(function(v,i){return [xPast(i),yAt(v)];});
+  var pastEl=document.getElementById("past");
+  if(pastEl){
+    pastEl.setAttribute("d",smooth(pastPts));
+    var lastV=past[np-1];
+    var dotEl=document.getElementById("todayDot");
+    dotEl.setAttribute("cx",splitX); dotEl.setAttribute("cy",yAt(lastV));
+    var tl=document.getElementById("todayLine");
+    tl.setAttribute("x1",splitX); tl.setAttribute("x2",splitX);
+    tl.setAttribute("y1",padTop-6); tl.setAttribute("y2",H-padBot);
+    var foreEl=document.getElementById("forecast");
+    var coneEl=document.getElementById("cone");
+    var fN=10;
+    function buildForecast(bias){
+      var med=[],up=[],lo=[];
+      for(var i=0;i<=fN;i++){
+        var t=i/fN;
+        var x=splitX+(W-padX-splitX)*t;
+        var drift=lastV + bias*0.13*t;
+        drift=Math.max(0.12,Math.min(0.88,drift));
+        var spread=0.02+0.085*t;
+        med.push([x,yAt(drift)]);
+        up.push([x,yAt(Math.min(0.92,drift+spread))]);
+        lo.push([x,yAt(Math.max(0.08,drift-spread))]);
+      }
+      foreEl.setAttribute("d",smooth(med));
+      var cone=smooth(up)+" L"+lo[lo.length-1][0].toFixed(1)+","+lo[lo.length-1][1].toFixed(1)+" "
+               +smooth(lo.slice().reverse()).replace(/^M[^C]*/,"")+" Z";
+      coneEl.setAttribute("d",cone);
+    }
+    var grid=document.getElementById("grid");
+    var gl=document.createElementNS("http://www.w3.org/2000/svg","line");
+    gl.setAttribute("x1",padX);gl.setAttribute("x2",W-padX);
+    gl.setAttribute("y1",yAt(0.5));gl.setAttribute("y2",yAt(0.5));
+    gl.setAttribute("stroke","#ffffff");gl.setAttribute("stroke-opacity",".1");
+    gl.setAttribute("stroke-width","1");gl.setAttribute("stroke-dasharray","2 7");
+    grid.appendChild(gl);
+    var ticks=document.getElementById("ticks");
+    [["−3w",padX,"start"],["today",splitX,"middle"],["+10d",W-padX,"end"]].forEach(function(t){
+      var el=document.createElementNS("http://www.w3.org/2000/svg","text");
+      el.setAttribute("x",t[1]);el.setAttribute("y",H-13);
+      el.setAttribute("fill","#7C9A98");el.setAttribute("font-size","11");
+      el.setAttribute("font-family","'JetBrains Mono', monospace");
+      el.setAttribute("text-anchor",t[2]);el.textContent=t[0];
+      ticks.appendChild(el);
+    });
+    buildForecast(0);
+    var states={
+      low:    {bias:-1, main:"Watch",  tint:"#D9657A", sub:"Energy's dipped a touch. Rest and a steady routine help most here."},
+      steady: {bias:0,  main:"Steady", tint:"#1AA396", sub:"Sleep trending a little earlier — worth a glance, nothing more."},
+      wired:  {bias:1,  main:"Watch",  tint:"#D9657A", sub:"Running warm. Protecting tonight's sleep is the highest-leverage move."}
+    };
+    var led=document.getElementById("led"),sMain=document.getElementById("status-main"),sSub=document.getElementById("status-sub");
+    function applyState(key,animate){
+      var s=states[key];
+      buildForecast(s.bias);
+      led.style.background=s.tint;
+      sMain.textContent=s.main; sSub.textContent=s.sub;
+      if(animate && !reduce){
+        [foreEl,coneEl].forEach(function(el){ el.style.transition="none"; el.style.opacity=0;
+          requestAnimationFrame(function(){ el.style.transition="opacity .4s ease"; el.style.opacity=1; }); });
+      }
+    }
+    document.querySelectorAll(".scope .chip").forEach(function(btn){
+      btn.addEventListener("click",function(){
+        document.querySelectorAll(".scope .chip").forEach(function(b){b.setAttribute("aria-pressed","false");});
+        btn.setAttribute("aria-pressed","true");
+        applyState(btn.dataset.state,true);
+      });
+    });
+    if(!reduce){
+      var len=pastEl.getTotalLength();
+      pastEl.style.strokeDasharray=len; pastEl.style.strokeDashoffset=len;
+      [foreEl,coneEl,dotEl,tl].forEach(function(e){e.style.opacity=0;});
+      requestAnimationFrame(function(){
+        pastEl.style.transition="stroke-dashoffset 1500ms cubic-bezier(.22,.61,.36,1)";
+        pastEl.style.strokeDashoffset=0;
+        setTimeout(function(){ [foreEl,coneEl,dotEl,tl].forEach(function(e){e.style.transition="opacity 800ms ease";e.style.opacity=1;}); },1000);
+      });
+      var t0=performance.now();
+      (function pulse(now){
+        var k=(Math.sin((now-t0)/1150)+1)/2;
+        led.style.boxShadow="0 0 0 "+(2+5*k).toFixed(1)+"px rgba(26,163,150,"+(0.28*(1-k)).toFixed(2)+")";
+        requestAnimationFrame(pulse);
+      })(t0);
+    }
+  }
 
   /* email capture (front-end only) */
   function wire(formId,emailId,noteId){

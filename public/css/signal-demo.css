@@ -14,6 +14,18 @@
   height: clamp(300px, 46vw, 520px);
 }
 
+.signal-demo--section .signal-demo__viewport {
+  height: clamp(480px, 52vw, 720px);
+}
+
+.signal-section {
+  padding-top: clamp(36px, 5vw, 56px);
+}
+
+.signal-section .section-head {
+  margin-bottom: clamp(24px, 3vw, 36px);
+}
+
 .signal-demo__stage {
   position: absolute;
   left: 50%;
@@ -280,6 +292,10 @@
 @media (max-width: 920px) {
   .signal-demo__viewport {
     height: clamp(260px, 72vw, 380px);
+  }
+
+  .signal-demo--section .signal-demo__viewport {
+    height: clamp(360px, 88vw, 520px);
   }
 }
 
