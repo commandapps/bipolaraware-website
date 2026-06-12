@@ -14,8 +14,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/css/site.css" />
+<link rel="stylesheet" href="/css/signal-demo.css" />
 </head>
 <body id="top">
 
@@ -62,46 +63,89 @@
         </form>
       </div>
 
-      <!-- SIGNATURE: the outlook -->
-      <div class="scope reveal">
-        <div class="scope-head">
-          <span class="scope-title">Your outlook</span>
-          <span class="scope-tag" id="scope-range">past 21 days · next 10</span>
-        </div>
-        <svg class="scopesvg" id="scope" viewBox="0 0 760 300" preserveAspectRatio="none" role="img" aria-label="A line of your recent days flowing into a forecast of the days ahead.">
-          <defs>
-            <linearGradient id="pastGrad" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="#1AA396" stop-opacity="0.55"/>
-              <stop offset="1" stop-color="#1AA396"/>
-            </linearGradient>
-            <linearGradient id="coneGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#D9657A" stop-opacity="0.20"/>
-              <stop offset="0.5" stop-color="#1AA396" stop-opacity="0.16"/>
-              <stop offset="1" stop-color="#1AA396" stop-opacity="0.05"/>
-            </linearGradient>
-          </defs>
-          <g id="grid"></g>
-          <path id="cone" fill="url(#coneGrad)" stroke="none"/>
-          <line id="todayLine" stroke="#ffffff" stroke-opacity="0.18" stroke-width="1" stroke-dasharray="3 5"/>
-          <path id="forecast" fill="none" stroke="#9FE6DD" stroke-width="2.4" stroke-dasharray="2 6" stroke-linecap="round"/>
-          <path id="past" fill="none" stroke="url(#pastGrad)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle id="todayDot" r="6" fill="#fff" stroke="#13212B" stroke-width="3"/>
-          <g id="ticks"></g>
-        </svg>
-
-        <div class="status">
-          <span class="status-led" id="led"></span>
-          <div>
-            <div class="status-main" id="status-main">Steady</div>
-            <div class="status-sub" id="status-sub">Sleep trending a little earlier — worth a glance, nothing more.</div>
+      <!-- SIGNATURE: animated outlook + Scout -->
+      <div class="signal-demo reveal" aria-label="Animated preview of your outlook chart and Scout early-warning message">
+        <div class="signal-demo__viewport">
+          <div class="signal-demo__stage" id="signalStage">
+            <section class="card outlook">
+              <div class="card-head">
+                <h2 class="serif title">Your outlook</h2>
+                <span class="mono sub">past 21 days · next 10</span>
+              </div>
+              <div class="chart">
+                <svg viewBox="0 0 860 252" preserveAspectRatio="xMidYMid meet" role="img" aria-label="A calm teal signal line holds steady, leans gently upward, then eases back — an early heads-up, caught in time.">
+                  <defs>
+                    <linearGradient id="coneTeal" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#1AA396" stop-opacity="0.22"></stop>
+                      <stop offset="50%" stop-color="#1AA396" stop-opacity="0.12"></stop>
+                      <stop offset="100%" stop-color="#1AA396" stop-opacity="0.05"></stop>
+                    </linearGradient>
+                    <linearGradient id="coneWarm" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#D9657A" stop-opacity="0.55"></stop>
+                      <stop offset="46%" stop-color="#D9657A" stop-opacity="0.16"></stop>
+                      <stop offset="100%" stop-color="#D9657A" stop-opacity="0"></stop>
+                    </linearGradient>
+                  </defs>
+                  <g stroke="#FFFFFF" stroke-opacity="0.10">
+                    <line x1="16" y1="128" x2="838" y2="128" stroke-width="1.2" stroke-dasharray="2 8"></line>
+                    <line x1="16" y1="116" x2="16" y2="140" stroke-width="1.2"></line>
+                    <line x1="516" y1="112" x2="516" y2="144" stroke-width="1.2"></line>
+                    <line x1="838" y1="116" x2="838" y2="140" stroke-width="1.2"></line>
+                  </g>
+                  <g class="mono" fill="#7C9A98" font-size="11" text-anchor="middle">
+                    <text x="16" y="168" text-anchor="start">−3w</text>
+                    <text x="516" y="168" fill="#9FB6B4">today</text>
+                    <text x="838" y="168" text-anchor="end">+10d</text>
+                  </g>
+                  <g>
+                    <path id="signalConeFill" fill="url(#coneTeal)"></path>
+                    <path id="signalConeFillWarm" fill="url(#coneWarm)" opacity="0"></path>
+                    <path id="signalConeCenter" fill="none" stroke="#9FE6DD" stroke-opacity="0.5" stroke-width="1.8" stroke-dasharray="3 9" stroke-linecap="round"></path>
+                    <path id="signalConeUpper" fill="none" stroke="#9FE6DD" stroke-opacity="0.7" stroke-width="1.4" stroke-linecap="round"></path>
+                  </g>
+                  <path id="signalLine" class="signal-line" fill="none" stroke="#1AA396" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <circle id="signalCatchRing" fill="none" stroke="#9FE6DD" stroke-width="2" opacity="0"></circle>
+                  <circle id="signalTodayHalo" fill="#EAF3F2" opacity="0.18"></circle>
+                  <circle id="signalTodayDot" class="today-dot" r="5.6" fill="#F4FBFA"></circle>
+                </svg>
+              </div>
+              <div class="status-row">
+                <div class="status-line">
+                  <span class="led" id="signalLed"></span>
+                  <span class="word-wrap serif">
+                    <span id="signalWordSteady">Steady</span>
+                    <span id="signalWordWatch" style="opacity:0">Watch</span>
+                  </span>
+                </div>
+                <div class="sub-wrap">
+                  <span id="signalSubSteady">Sleep trending a little earlier — worth a glance, nothing more.</span>
+                  <span id="signalSubWatch" style="opacity:0">Sleep and activity are drifting from your usual rhythm.</span>
+                </div>
+              </div>
+              <div class="checkin-row" role="group" aria-label="Optional check-in preview">
+                <span class="mono add">Add today</span>
+                <div class="chips" id="signalChips">
+                  <div class="chip-hl" id="signalChipHl"></div>
+                  <div class="chip" data-i="0">Low</div>
+                  <div class="chip" data-i="1">Steady</div>
+                  <div class="chip" data-i="2">Wired</div>
+                </div>
+              </div>
+            </section>
+            <section class="card scout" id="signalScoutCard">
+              <div class="scout-head">
+                <span class="avatar"></span>
+                <span class="mono scout-label">Scout</span>
+              </div>
+              <p class="scout-msg">Heads up — your sleep and activity look different than usual this week. Worth a glance, not a verdict.</p>
+              <div class="readout">
+                <div class="ro-row"><span class="ro-ind"></span><span class="mono"><b>Sleep 4.5h</b> · baseline 7h</span></div>
+                <div class="ro-row"><span class="ro-ind"></span><span class="mono">Activity <b>↑</b></span></div>
+              </div>
+              <span class="mono caption">Illustrative example · not medical advice</span>
+            </section>
+            <div class="mono wordmark">BipolarAware</div>
           </div>
-        </div>
-
-        <div class="checkin" role="group" aria-label="Optional check-in: how does today feel?">
-          <span class="lab">Add today</span>
-          <button class="chip" data-state="low" aria-pressed="false">Low</button>
-          <button class="chip" data-state="steady" aria-pressed="true">Steady</button>
-          <button class="chip" data-state="wired" aria-pressed="false">Wired</button>
         </div>
       </div>
     </div>
@@ -192,26 +236,16 @@
   <!-- SCOUT -->
   <section class="section" id="scout" style="padding-top:0">
     <div class="wrap">
-      <div class="scout-panel reveal">
+      <div class="scout-panel reveal scout-panel--single">
         <div>
           <span class="scout-badge">AI companion · on your device</span>
           <h2>Meet Scout — your vigilant, respectful guide.</h2>
-          <p class="lead">BipolarAware watches passively. Scout is the voice that helps you understand what the data means — translating patterns into plain language, suggesting next steps, and preparing summaries you can share on your terms.</p>
+          <p class="lead">The animation above shows how it works: your outlook catches drift early, then Scout translates the pattern into plain language — with specific readouts against your baseline, not generic thresholds.</p>
           <div class="scout-points">
-            <div class="scout-point"><span class="dot"></span><p>Explains why something was flagged — sleep, activity, rhythm — against your personal baseline, not a generic threshold.</p></div>
+            <div class="scout-point"><span class="dot"></span><p>Explains why something was flagged — sleep, activity, rhythm — in supportive language you can act on.</p></div>
             <div class="scout-point"><span class="dot"></span><p>Helps you build a clear trend summary for appointments, so your care team sees objective changes alongside how you feel.</p></div>
-            <div class="scout-point"><span class="dot"></span><p>Supportive, never alarming. Scout nudges when something seems off — it doesn't diagnose, and you stay in control of every alert.</p></div>
+            <div class="scout-point"><span class="dot"></span><p>Never pushes, never diagnoses. Scout appears when patterns shift — you stay in control of every alert and every share.</p></div>
           </div>
-        </div>
-        <div class="scout-card" aria-hidden="true">
-          <p class="who">Scout</p>
-          <p class="tagline">When the outlook needs words.</p>
-          <div class="scout-chat">
-            <div class="scout-bubble scout">Heads up: your sleep and activity patterns look different than usual this week — that can sometimes happen before a mood shift. Worth a glance, not a verdict.</div>
-            <div class="scout-bubble you">What's actually changed?</div>
-            <div class="scout-bubble scout">You've averaged 4½ hours of sleep the last three nights (your baseline is 7), and your step count jumped sharply. Protecting tonight's routine is the highest-leverage move. Want help drafting a note for your clinician?</div>
-          </div>
-          <p class="scout-note">Illustrative example · not medical advice</p>
         </div>
       </div>
     </div>
@@ -345,125 +379,6 @@
     reveals.forEach(function(el){io.observe(el);});
   } else { reveals.forEach(function(el){el.classList.add("in");}); }
 
-  /* ---------- the outlook instrument ---------- */
-  var W=760,H=300,padX=18,padTop=26,padBot=40;
-  var splitX=W*0.66;                 // "today" position
-  // 21 days of recent baseline-ish signal (0..1), gently varying, ending near steady
-  var past=[0.52,0.49,0.55,0.5,0.47,0.53,0.5,0.44,0.5,0.55,0.52,0.48,0.5,0.53,0.49,0.46,0.5,0.52,0.5,0.48,0.5];
-  var np=past.length;
-  var xPast=function(i){ return padX + (splitX-padX)*(i/(np-1)); };
-  var yAt=function(v){ return padTop + (H-padTop-padBot)*(1-v); };
-
-  function smooth(pts){
-    if(pts.length<2) return "";
-    var d="M"+pts[0][0].toFixed(1)+","+pts[0][1].toFixed(1);
-    for(var i=0;i<pts.length-1;i++){
-      var p0=pts[i-1]||pts[i],p1=pts[i],p2=pts[i+1],p3=pts[i+2]||p2;
-      var c1x=p1[0]+(p2[0]-p0[0])/6,c1y=p1[1]+(p2[1]-p0[1])/6;
-      var c2x=p2[0]-(p3[0]-p1[0])/6,c2y=p2[1]-(p3[1]-p1[1])/6;
-      d+="C"+c1x.toFixed(1)+","+c1y.toFixed(1)+" "+c2x.toFixed(1)+","+c2y.toFixed(1)+" "+p2[0].toFixed(1)+","+p2[1].toFixed(1);
-    }
-    return d;
-  }
-
-  var pastPts=past.map(function(v,i){return [xPast(i),yAt(v)];});
-  var pastEl=document.getElementById("past");
-  pastEl.setAttribute("d",smooth(pastPts));
-
-  var lastV=past[np-1];
-  var dotEl=document.getElementById("todayDot");
-  dotEl.setAttribute("cx",splitX); dotEl.setAttribute("cy",yAt(lastV));
-  var tl=document.getElementById("todayLine");
-  tl.setAttribute("x1",splitX); tl.setAttribute("x2",splitX);
-  tl.setAttribute("y1",padTop-6); tl.setAttribute("y2",H-padBot);
-
-  // forecast: 10 steps from today, median drifts by bias, cone widens
-  var foreEl=document.getElementById("forecast");
-  var coneEl=document.getElementById("cone");
-  var fN=10;
-  function buildForecast(bias){      // bias: -1 low, 0 steady, +1 wired
-    var med=[],up=[],lo=[];
-    for(var i=0;i<=fN;i++){
-      var t=i/fN;
-      var x=splitX+(W-padX-splitX)*t;
-      var drift=lastV + bias*0.13*t;             // gentle directional lean
-      drift=Math.max(0.12,Math.min(0.88,drift));
-      var spread=0.02+0.085*t;                   // uncertainty widens
-      med.push([x,yAt(drift)]);
-      up.push([x,yAt(Math.min(0.92,drift+spread))]);
-      lo.push([x,yAt(Math.max(0.08,drift-spread))]);
-    }
-    foreEl.setAttribute("d",smooth(med));
-    var cone=smooth(up)+" L"+lo[lo.length-1][0].toFixed(1)+","+lo[lo.length-1][1].toFixed(1)+" "
-             +smooth(lo.slice().reverse()).replace(/^M[^C]*/,"")+" Z";
-    coneEl.setAttribute("d",cone);
-  }
-
-  // gridline at steady (0.5)
-  var grid=document.getElementById("grid");
-  var gl=document.createElementNS("http://www.w3.org/2000/svg","line");
-  gl.setAttribute("x1",padX);gl.setAttribute("x2",W-padX);
-  gl.setAttribute("y1",yAt(0.5));gl.setAttribute("y2",yAt(0.5));
-  gl.setAttribute("stroke","#ffffff");gl.setAttribute("stroke-opacity",".1");
-  gl.setAttribute("stroke-width","1");gl.setAttribute("stroke-dasharray","2 7");
-  grid.appendChild(gl);
-  // ticks
-  var ticks=document.getElementById("ticks");
-  [["−3w",padX,"start"],["today",splitX,"middle"],["+10d",W-padX,"end"]].forEach(function(t){
-    var el=document.createElementNS("http://www.w3.org/2000/svg","text");
-    el.setAttribute("x",t[1]);el.setAttribute("y",H-13);
-    el.setAttribute("fill","#7C9A98");el.setAttribute("font-size","11");
-    el.setAttribute("font-family","'JetBrains Mono', monospace");
-    el.setAttribute("text-anchor",t[2]);el.textContent=t[0];
-    ticks.appendChild(el);
-  });
-
-  buildForecast(0);
-
-  // status copy + LED tint per state
-  var states={
-    low:    {bias:-1, main:"Watch",  tint:"#D9657A", sub:"Energy's dipped a touch. Rest and a steady routine help most here."},
-    steady: {bias:0,  main:"Steady", tint:"#1AA396", sub:"Sleep trending a little earlier — worth a glance, nothing more."},
-    wired:  {bias:1,  main:"Watch",  tint:"#D9657A", sub:"Running warm. Protecting tonight's sleep is the highest-leverage move."}
-  };
-  var led=document.getElementById("led"),sMain=document.getElementById("status-main"),sSub=document.getElementById("status-sub");
-  function applyState(key,animate){
-    var s=states[key];
-    buildForecast(s.bias);
-    led.style.background=s.tint;
-    sMain.textContent=s.main; sSub.textContent=s.sub;
-    if(animate && !reduce){
-      [foreEl,coneEl].forEach(function(el){ el.style.transition="none"; el.style.opacity=0;
-        requestAnimationFrame(function(){ el.style.transition="opacity .4s ease"; el.style.opacity=1; }); });
-    }
-  }
-  document.querySelectorAll(".chip").forEach(function(btn){
-    btn.addEventListener("click",function(){
-      document.querySelectorAll(".chip").forEach(function(b){b.setAttribute("aria-pressed","false");});
-      btn.setAttribute("aria-pressed","true");
-      applyState(btn.dataset.state,true);
-    });
-  });
-
-  // draw-on-load
-  if(!reduce){
-    var len=pastEl.getTotalLength();
-    pastEl.style.strokeDasharray=len; pastEl.style.strokeDashoffset=len;
-    [foreEl,coneEl,dotEl,tl].forEach(function(e){e.style.opacity=0;});
-    requestAnimationFrame(function(){
-      pastEl.style.transition="stroke-dashoffset 1500ms cubic-bezier(.22,.61,.36,1)";
-      pastEl.style.strokeDashoffset=0;
-      setTimeout(function(){ [foreEl,coneEl,dotEl,tl].forEach(function(e){e.style.transition="opacity 800ms ease";e.style.opacity=1;}); },1000);
-    });
-    // soft LED pulse
-    var t0=performance.now();
-    (function pulse(now){
-      var k=(Math.sin((now-t0)/1150)+1)/2;
-      led.style.boxShadow="0 0 0 "+(2+5*k).toFixed(1)+"px rgba(26,163,150,"+(0.28*(1-k)).toFixed(2)+")";
-      requestAnimationFrame(pulse);
-    })(t0);
-  }
-
   /* email capture (front-end only) */
   function wire(formId,emailId,noteId){
     var f=document.getElementById(formId); if(!f) return;
@@ -482,5 +397,6 @@
   wire("cta-form","cta-email","cta-note");
 })();
 </script>
+<script src="/js/signal-demo.js"></script>
 </body>
 </html>

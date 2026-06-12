@@ -167,6 +167,7 @@ footer{padding-block:52px 60px;border-top:1px solid var(--mist);margin-top:clamp
 
 /* scout */
 .scout-panel{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,4vw,48px);align-items:center;background:var(--porcelain-2);border:1px solid var(--mist);border-radius:22px;padding:clamp(28px,4vw,44px)}
+.scout-panel--single{grid-template-columns:1fr;max-width:760px}
 @media(max-width:860px){.scout-panel{grid-template-columns:1fr}}
 .scout-badge{display:inline-flex;align-items:center;gap:8px;font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--signal-deep);background:rgba(26,163,150,.1);border:1px solid rgba(26,163,150,.22);border-radius:999px;padding:7px 12px;margin-bottom:16px}
 .scout-points{display:grid;gap:14px;margin-top:22px}
