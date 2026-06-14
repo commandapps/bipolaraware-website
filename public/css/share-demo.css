@@ -1,0 +1,440 @@
+/* Animated Share card */
+.share-demo {
+  border-radius: 22px;
+  overflow: hidden;
+  background: radial-gradient(120% 120% at 50% 16%, #16252F 0%, #13212B 48%, #0E1A22 100%);
+  padding: clamp(24px, 3.5vw, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 420px;
+}
+
+.share-demo .mono {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.share-demo .serif {
+  font-family: "Newsreader", Georgia, serif;
+  font-weight: 500;
+}
+
+.share-demo .scene {
+  position: relative;
+  width: min(760px, 100%);
+  display: flex;
+  gap: clamp(10px, 1.6vw, 20px);
+  align-items: center;
+}
+
+.share-demo .card {
+  position: relative;
+  flex: 1 1 auto;
+  background: linear-gradient(180deg, rgba(26, 42, 52, 0.92) 0%, rgba(16, 27, 34, 0.95) 100%);
+  border: 1px solid rgba(159, 230, 221, 0.1);
+  border-radius: 26px;
+  padding: clamp(24px, 3.2vw, 40px);
+  box-shadow: 0 40px 80px -36px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  will-change: opacity, transform;
+  color: #EAF3F2;
+}
+
+.share-demo .head {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.share-demo .avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  flex: none;
+  background: radial-gradient(circle at 34% 30%, #2BC3B4 0%, #1AA396 58%, #14837A 100%);
+  box-shadow: 0 0 16px rgba(26, 163, 150, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.share-demo .head .name {
+  font-size: clamp(22px, 2.7vw, 27px);
+  line-height: 1;
+}
+
+.share-demo .tag {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 9.5px;
+  color: #9FE6DD;
+  padding: 6px 11px;
+  border: 1px solid rgba(159, 230, 221, 0.18);
+  border-radius: 999px;
+  background: rgba(26, 163, 150, 0.08);
+  white-space: nowrap;
+}
+
+.share-demo .prompt {
+  margin: 20px 0 0;
+  font-size: clamp(16px, 1.95vw, 20px);
+  line-height: 1.45;
+  text-wrap: pretty;
+  will-change: opacity, transform;
+}
+
+.share-demo .range {
+  margin-top: 22px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  will-change: opacity, transform;
+}
+
+.share-demo .range .lbl {
+  font-size: 10px;
+  color: #7C9A98;
+  white-space: nowrap;
+}
+
+.share-demo .range .rule {
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.share-demo .stats {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+.share-demo .stat {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 2px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  will-change: opacity, transform;
+}
+
+.share-demo .stat .k {
+  font-size: 11px;
+  color: #9FB6B4;
+  min-width: 78px;
+}
+
+.share-demo .spark {
+  width: 58px;
+  height: 20px;
+  flex: none;
+}
+
+.share-demo .stat .v {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  flex: 1;
+}
+
+.share-demo .stat .v .base {
+  color: #7C9A98;
+}
+
+.share-demo .stat .v .quote {
+  color: #9FB6B4;
+  text-transform: none;
+  letter-spacing: 0;
+  font-style: italic;
+  font-family: "Newsreader", serif;
+}
+
+.share-demo .mark {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #E35B76;
+}
+
+.share-demo .mark .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #E35B76;
+  box-shadow: 0 0 8px rgba(227, 91, 118, 0.5);
+}
+
+.share-demo .pair {
+  margin: 16px 0 0;
+  font-size: clamp(13.5px, 1.55vw, 15.5px);
+  line-height: 1.4;
+  color: #9FB6B4;
+  will-change: opacity, transform;
+}
+
+.share-demo .pair b {
+  color: #9FE6DD;
+  font-weight: 500;
+}
+
+.share-demo .toggles {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  will-change: opacity, transform;
+}
+
+.share-demo .toggles .lead {
+  font-size: 9.5px;
+  color: #7C9A98;
+  align-self: center;
+  margin-right: 2px;
+}
+
+.share-demo .tog {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  white-space: nowrap;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.share-demo .tog .chk {
+  color: #1AA396;
+}
+
+.share-demo .tog.off {
+  color: #7C9A98;
+}
+
+.share-demo .tog.off .chk {
+  color: #7C9A98;
+}
+
+.share-demo .action {
+  margin-top: 24px;
+  position: relative;
+}
+
+.share-demo .share {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: "Instrument Sans", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #0B1A18;
+  padding: 16px 22px;
+  border: none;
+  border-radius: 15px;
+  white-space: nowrap;
+  background: linear-gradient(180deg, #23B7A8 0%, #1AA396 60%, #14837A 100%);
+  box-shadow: 0 12px 28px -12px rgba(26, 163, 150, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  cursor: default;
+  will-change: transform, opacity;
+  overflow: hidden;
+}
+
+.share-demo .share .ripple {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.share-demo .share .lockico {
+  width: 15px;
+  height: 16px;
+  opacity: 0.85;
+}
+
+.share-demo .confirm {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: "Newsreader", serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #9FE6DD;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+
+.share-demo .confirm .badge {
+  width: 22px;
+  height: 22px;
+  flex: none;
+}
+
+.share-demo .caption {
+  margin: 18px 0 0;
+  font-size: 9px;
+  color: #7C9A98;
+  text-align: center;
+  will-change: opacity;
+}
+
+.share-demo .team {
+  flex: 0 0 auto;
+  width: clamp(64px, 9vw, 88px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+}
+
+.share-demo .clinician {
+  position: relative;
+  width: clamp(48px, 6.4vw, 60px);
+  height: clamp(48px, 6.4vw, 60px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 36% 30%, rgba(159, 230, 221, 0.16), rgba(159, 230, 221, 0.05));
+  border: 1px solid rgba(159, 230, 221, 0.22);
+  color: #9FE6DD;
+  will-change: filter, opacity;
+}
+
+.share-demo .clinician svg {
+  width: 54%;
+  height: 54%;
+}
+
+.share-demo .clinician .ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1.5px solid #1AA396;
+  opacity: 0;
+  transform: scale(0.7);
+  will-change: opacity, transform;
+}
+
+.share-demo .clinician .check {
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #1AA396;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 12px rgba(26, 163, 150, 0.6);
+  opacity: 0;
+  transform: scale(0.4);
+  will-change: opacity, transform;
+}
+
+.share-demo .clinician .check svg {
+  width: 12px;
+  height: 12px;
+  color: #0B1A18;
+}
+
+.share-demo .team .tlabel {
+  font-size: 8.5px;
+  color: #7C9A98;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.share-demo .cursor {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 26px;
+  height: 26px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 20;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+}
+
+.share-demo .packet {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 74px;
+  height: 30px;
+  border-radius: 9px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 15;
+  background: linear-gradient(180deg, rgba(159, 230, 221, 0.95), rgba(26, 163, 150, 0.92));
+  border: 1px solid rgba(159, 230, 221, 0.6);
+  box-shadow: 0 10px 24px -8px rgba(26, 163, 150, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  will-change: transform, opacity;
+}
+
+.share-demo .packet .pl {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  color: #0B1A18;
+  text-transform: uppercase;
+}
+
+.share-demo .packet svg {
+  width: 11px;
+  height: 12px;
+  color: #0B1A18;
+}
+
+@media (max-width: 640px) {
+  .share-demo .scene {
+    flex-direction: column;
+  }
+
+  .share-demo .team {
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .share-demo .card,
+  .share-demo .prompt,
+  .share-demo .range,
+  .share-demo .stat,
+  .share-demo .pair,
+  .share-demo .toggles,
+  .share-demo .action,
+  .share-demo .caption {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .share-demo .cursor,
+  .share-demo .packet {
+    display: none !important;
+  }
+}

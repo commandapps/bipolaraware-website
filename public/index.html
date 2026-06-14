@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="/css/site.css" />
 <link rel="stylesheet" href="/css/signal-demo.css" />
 <link rel="stylesheet" href="/css/scout-demo.css" />
+<link rel="stylesheet" href="/css/share-demo.css" />
 </head>
 <body id="top">
 
@@ -36,6 +37,7 @@
       <a href="#how">How it works</a>
       <a href="#watches">What it watches</a>
       <a href="#scout">Scout</a>
+      <a href="#share">Share</a>
       <a href="#trust">Trust &amp; privacy</a>
     </nav>
     <div class="nav-right">
@@ -303,6 +305,107 @@
     </div>
   </section>
 
+  <!-- SHARE -->
+  <section class="section" id="share" style="padding-top:0">
+    <div class="wrap">
+      <div class="scout-panel reveal">
+        <div>
+          <span class="scout-badge">Share · on your terms</span>
+          <h2>Bring objective signal to your care team.</h2>
+          <p class="lead">Appointments are short. Memory is fallible. BipolarAware Share turns weeks of passive monitoring into a clear summary your psychiatrist, therapist, or care coordinator can actually use — without giving up control of your data.</p>
+          <div class="scout-points">
+            <div class="scout-point"><span class="dot"></span><p>Sleep, activity, and check-in trends alongside how you felt — objective changes next to your own words, not either/or.</p></div>
+            <div class="scout-point"><span class="dot"></span><p>You choose what's included before anything leaves your phone. Toggle categories on or off; location stays off by default.</p></div>
+            <div class="scout-point"><span class="dot"></span><p>One tap sends an encrypted summary to your care team — so visits start with shared context, not starting from scratch.</p></div>
+          </div>
+        </div>
+        <div class="share-demo reveal" id="share-demo" aria-label="Animated Share summary card with care team handoff">
+          <div class="scene" id="shareDemoScene">
+            <div class="card" id="shareDemoCard">
+              <header class="head" data-r="head">
+                <span class="avatar"></span>
+                <span class="serif name">Scout</span>
+                <span class="mono tag">Ready for your appointment</span>
+              </header>
+              <p class="prompt" data-r="prompt">Want a summary ready for your next appointment?</p>
+              <div class="range" data-r="range">
+                <span class="mono lbl">Last 14 days</span>
+                <span class="rule"></span>
+              </div>
+              <div class="stats">
+                <div class="stat" data-r="stat0">
+                  <span class="mono k">Sleep</span>
+                  <svg class="spark" id="shareDemoSparkSleep" viewBox="0 0 58 20" fill="none" aria-hidden="true"></svg>
+                  <span class="mono v"><b>4.5h</b> avg · <span class="base">baseline 7h</span></span>
+                  <span class="mono mark"><span class="dot"></span>↓</span>
+                </div>
+                <div class="stat" data-r="stat1">
+                  <span class="mono k">Activity</span>
+                  <svg class="spark" id="shareDemoSparkAct" viewBox="0 0 58 20" fill="none" aria-hidden="true"></svg>
+                  <span class="mono v">up sharply</span>
+                  <span class="mono mark"><span class="dot"></span>↑</span>
+                </div>
+                <div class="stat" data-r="stat2">
+                  <span class="mono k">Check-ins</span>
+                  <span class="mono v">3 logged · <span class="quote">"wired, restless"</span></span>
+                </div>
+              </div>
+              <p class="pair" data-r="pair"><b>Objective changes</b>, alongside how you felt.</p>
+              <div class="toggles" data-r="toggles">
+                <span class="mono lead">Include</span>
+                <span class="mono tog"><span class="chk">✓</span> Sleep</span>
+                <span class="mono tog"><span class="chk">✓</span> Activity</span>
+                <span class="mono tog"><span class="chk">✓</span> Check-ins</span>
+                <span class="mono tog off"><span class="chk">✕</span> Location</span>
+              </div>
+              <div class="action" data-r="action">
+                <button type="button" class="share" id="shareDemoShareBtn" tabindex="-1" aria-hidden="true">
+                  <span class="ripple" id="shareDemoRipple"></span>
+                  <svg class="lockico" viewBox="0 0 15 16" fill="none" aria-hidden="true">
+                    <rect x="2" y="7" width="11" height="7.5" rx="1.6" fill="currentColor"></rect>
+                    <path d="M4.3 7V4.8a3.2 3.2 0 0 1 6.4 0V7" stroke="currentColor" stroke-width="1.4" fill="none"></path>
+                  </svg>
+                  <span class="lbl-share">Share with your care team</span>
+                </button>
+                <div class="confirm" id="shareDemoConfirm">
+                  <svg class="badge" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+                    <circle cx="11" cy="11" r="10" stroke="currentColor" stroke-width="1.5"></circle>
+                    <path d="M6.5 11.4l3 3 6-6.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                  <span>Shared — on your terms</span>
+                </div>
+              </div>
+              <p class="mono caption" data-r="caption">Illustrative example · not medical advice · you choose what's shared</p>
+            </div>
+            <div class="team">
+              <div class="clinician" id="shareDemoClinician">
+                <span class="ring" id="shareDemoClinRing"></span>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.6"></circle>
+                  <path d="M5.5 19.5a6.5 6.5 0 0 1 13 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+                </svg>
+                <span class="check" id="shareDemoClinCheck">
+                  <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3L9.5 3.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                </span>
+              </div>
+              <span class="mono tlabel">Your care team</span>
+            </div>
+            <div class="packet" id="shareDemoPacket">
+              <svg viewBox="0 0 15 16" fill="none" aria-hidden="true">
+                <rect x="2" y="7" width="11" height="7.5" rx="1.6" fill="currentColor"></rect>
+                <path d="M4.3 7V4.8a3.2 3.2 0 0 1 6.4 0V7" stroke="currentColor" stroke-width="1.4" fill="none"></path>
+              </svg>
+              <span class="pl">Summary</span>
+            </div>
+            <svg class="cursor" id="shareDemoCursor" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+              <path d="M5 3l15 8.5-6.4 1.6-2.2 6.4z" fill="#EAF3F2" stroke="#0B1A18" stroke-width="1.2" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CRISIS -->
   <section class="section" id="support" style="padding-top:0">
     <div class="wrap">
@@ -426,5 +529,6 @@
 </script>
 <script src="/js/signal-demo.js"></script>
 <script src="/js/scout-demo.js"></script>
+<script src="/js/share-demo.js"></script>
 </body>
 </html>
