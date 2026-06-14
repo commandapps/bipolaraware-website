@@ -4,6 +4,10 @@
   const viewport = document.querySelector(".signal-demo__viewport");
   if (!stage || !viewport) return;
 
+  const solo = stage.classList.contains("signal-demo__stage--solo");
+  const STAGE_W = solo ? 912 : 1600;
+  const STAGE_H = solo ? 560 : 700;
+
   const $ = (id) => document.getElementById(id);
   const PI = Math.PI;
   const LOOP = 14;
@@ -44,13 +48,6 @@
     if (t < 7.6) return smoother((t - 4.6) / 3.0);
     if (t < 9.3) return 1;
     if (t < 11.6) return 1 - smoother((t - 9.3) / 2.3);
-    return 0;
-  }
-  function scoutEnv(t) {
-    if (t < 4.6) return 0;
-    if (t < 5.9) return smoother((t - 4.6) / 1.3);
-    if (t < 10.0) return 1;
-    if (t < 11.5) return 1 - smoother((t - 10.0) / 1.5);
     return 0;
   }
   function chipProg(t) {
@@ -128,7 +125,6 @@
     wordWatch: $("signalWordWatch"),
     subSteady: $("signalSubSteady"),
     subWatch: $("signalSubWatch"),
-    scout: $("signalScoutCard"),
     chips: $("signalChips"),
     chipHl: $("signalChipHl"),
     chipEls: [...stage.querySelectorAll(".signal-demo .chip")],
@@ -143,7 +139,7 @@
   function fit() {
     const w = viewport.clientWidth;
     const h = viewport.clientHeight;
-    const s = Math.min(w / 1600, h / 700);
+    const s = Math.min(w / STAGE_W, h / STAGE_H);
     stage.style.transform = `translate(-50%, -50%) scale(${s})`;
     measureChips();
   }
@@ -209,11 +205,6 @@
       const cover = Math.max(0, 1 - Math.abs(pos - i));
       c.style.color = mix(MUTED, DARK, cover);
     });
-
-    const se = scoutEnv(t);
-    const ee = smoother(se);
-    el.scout.style.opacity = ee.toFixed(3);
-    el.scout.style.transform = `translate(${((1 - ee) * 22).toFixed(2)}px, 0) scale(${(0.97 + ee * 0.03).toFixed(4)})`;
   }
 
   fit();

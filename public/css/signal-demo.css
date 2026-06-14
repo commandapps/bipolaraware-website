@@ -1,4 +1,4 @@
-/* Animated outlook + Scout demo (from BipolarAware Signal standalone) */
+/* Animated Your outlook card (hero) */
 .signal-demo {
   position: relative;
   width: 100%;
@@ -14,16 +14,8 @@
   height: clamp(300px, 46vw, 520px);
 }
 
-.signal-demo--section .signal-demo__viewport {
-  height: clamp(480px, 52vw, 720px);
-}
-
-.signal-section {
-  padding-top: clamp(36px, 5vw, 56px);
-}
-
-.signal-section .section-head {
-  margin-bottom: clamp(24px, 3vw, 36px);
+.signal-demo--hero .signal-demo__viewport {
+  height: clamp(340px, 52vw, 500px);
 }
 
 .signal-demo__stage {
@@ -34,6 +26,11 @@
   height: 700px;
   transform-origin: center center;
   transform: translate(-50%, -50%);
+}
+
+.signal-demo__stage--solo {
+  width: 912px;
+  height: 560px;
 }
 
 .signal-demo .mono {
@@ -63,6 +60,13 @@
   padding: 36px 40px 32px;
   display: flex;
   flex-direction: column;
+}
+
+.signal-demo__stage--solo .outlook {
+  left: 0;
+  top: 0;
+  width: 912px;
+  height: 560px;
 }
 
 .signal-demo .card-head {
@@ -139,7 +143,7 @@
 
 .signal-demo .sub-wrap {
   position: relative;
-  height: 20px;
+  min-height: 20px;
   margin-top: 8px;
 }
 
@@ -149,7 +153,8 @@
   top: 0;
   font-size: 15px;
   color: #9FB6B4;
-  white-space: nowrap;
+  line-height: 1.35;
+  max-width: 36ch;
 }
 
 .signal-demo .checkin-row {
@@ -157,6 +162,7 @@
   display: flex;
   align-items: center;
   gap: 18px;
+  flex-wrap: wrap;
 }
 
 .signal-demo .add {
@@ -198,104 +204,10 @@
   transition: transform 0.15s ease, width 0.15s ease;
 }
 
-.signal-demo .scout {
-  left: 1028px;
-  top: 196px;
-  width: 500px;
-  background: #16262F;
-  padding: 26px 28px 22px;
-  display: flex;
-  flex-direction: column;
-  transform-origin: left center;
-  opacity: 0;
-}
-
-.signal-demo .scout-head {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.signal-demo .scout-head .avatar {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #9FE6DD, #1AA396);
-  box-shadow: 0 0 10px rgba(159, 230, 221, 0.4);
-}
-
-.signal-demo .scout-head .scout-label {
-  font-size: 11px;
-  color: #9FE6DD;
-}
-
-.signal-demo .scout-msg {
-  margin: 16px 0 0;
-  font-size: 18px;
-  line-height: 1.5;
-  color: #EAF3F2;
-  font-family: "Instrument Sans", sans-serif;
-  font-weight: 400;
-}
-
-.signal-demo .readout {
-  margin-top: 18px;
-  padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.signal-demo .ro-row {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-}
-
-.signal-demo .ro-ind {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--ember, #D9657A);
-  box-shadow: 0 0 8px rgba(217, 101, 122, 0.5);
-  flex: none;
-}
-
-.signal-demo .ro-row .mono {
-  font-size: 11px;
-  color: #9FB6B4;
-  white-space: nowrap;
-  letter-spacing: 0.12em;
-}
-
-.signal-demo .ro-row .mono b {
-  color: #EAF3F2;
-  font-weight: 500;
-}
-
-.signal-demo .caption {
-  margin-top: 16px;
-  font-size: 10px;
-  color: #7C9A98;
-  letter-spacing: 0.13em;
-}
-
-.signal-demo .wordmark {
-  position: absolute;
-  left: 76px;
-  top: 644px;
-  font-size: 11px;
-  color: #7C9A98;
-}
-
 @media (max-width: 920px) {
-  .signal-demo__viewport {
-    height: clamp(260px, 72vw, 380px);
-  }
-
-  .signal-demo--section .signal-demo__viewport {
-    height: clamp(360px, 88vw, 520px);
+  .signal-demo__viewport,
+  .signal-demo--hero .signal-demo__viewport {
+    height: clamp(280px, 78vw, 420px);
   }
 }
 
