@@ -17,6 +17,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/css/site.css" />
 <link rel="stylesheet" href="/css/signal-demo.css" />
+<link rel="stylesheet" href="/css/signal-moods.css" />
+<link rel="stylesheet" href="/css/scout-demo.css" />
 </head>
 <body id="top">
 
@@ -126,11 +128,13 @@
       <div class="section-head reveal">
         <p class="eyebrow">See it in action</p>
         <h2>Your outlook catches drift — Scout explains it.</h2>
-        <p class="lead">Scroll into the loop below: the signal line leans, the forecast widens, status shifts from Steady to Watch, and Scout appears with plain-language readouts against your baseline.</p>
+        <p class="lead">Two live outlook previews below — an early-warning loop with Scout, then your signal moving between Steady · Wired · and Low. Meet Scout in action further down the page.</p>
       </div>
     </div>
     <div class="wrap wrap--wide">
-      <div class="signal-demo signal-demo--section reveal" aria-label="Animated preview of your outlook chart and Scout early-warning message">
+      <div class="demo-block reveal">
+        <p class="demo-label">Early warning · outlook + Scout</p>
+      <div class="signal-demo signal-demo--section" aria-label="Animated preview of your outlook chart and Scout early-warning message">
         <div class="signal-demo__viewport">
           <div class="signal-demo__stage" id="signalStage">
             <section class="card outlook">
@@ -214,6 +218,64 @@
           </div>
         </div>
       </div>
+        <p class="demo-caption">The signal line leans, the forecast widens, status shifts from Steady to Watch, and Scout appears with readouts against your baseline.</p>
+      </div>
+
+      <div class="demo-block reveal">
+        <p class="demo-label">Steady · Wired · Low</p>
+        <div class="signal-moods" id="signalMoodsRoot" aria-label="Animated signal line cycling between steady, wired, and low moods against your personal baseline">
+          <svg viewBox="0 0 1600 700" preserveAspectRatio="xMidYMid meet" role="img">
+            <defs>
+              <radialGradient id="moodsGroundGrad" cx="50%" cy="20%" r="95%">
+                <stop offset="0%" stop-color="#17262F"></stop>
+                <stop offset="55%" stop-color="#13212B"></stop>
+                <stop offset="100%" stop-color="#0E1A22"></stop>
+              </radialGradient>
+              <radialGradient id="moodsVignette" cx="50%" cy="46%" r="75%">
+                <stop offset="62%" stop-color="#000000" stop-opacity="0"></stop>
+                <stop offset="100%" stop-color="#000000" stop-opacity="0.28"></stop>
+              </radialGradient>
+              <linearGradient id="moodsConeGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop id="signalMoodsCone0" offset="0%" stop-color="#1AA396" stop-opacity="0.24"></stop>
+                <stop id="signalMoodsCone1" offset="100%" stop-color="#1AA396" stop-opacity="0.04"></stop>
+              </linearGradient>
+            </defs>
+            <g>
+              <rect x="40" y="40" width="1520" height="620" rx="26" fill="url(#moodsGroundGrad)"></rect>
+              <rect x="40" y="40" width="1520" height="620" rx="26" fill="url(#moodsVignette)"></rect>
+              <rect x="40.5" y="40.5" width="1519" height="619" rx="26" fill="none" stroke="#9FE6DD" stroke-opacity="0.06" stroke-width="1"></rect>
+            </g>
+            <g stroke="#FFFFFF" stroke-opacity="0.10">
+              <line x1="180" y1="370" x2="1440" y2="370" stroke-width="1.2" stroke-dasharray="2 8"></line>
+              <line x1="180" y1="356" x2="180" y2="384" stroke-width="1.2"></line>
+              <line x1="950" y1="352" x2="950" y2="388" stroke-width="1.2"></line>
+              <line x1="1440" y1="356" x2="1440" y2="384" stroke-width="1.2"></line>
+            </g>
+            <g class="mono" fill="#7C9A98" font-size="11" text-anchor="middle">
+              <text x="180" y="408">−3w</text>
+              <text x="950" y="408" fill="#9FB6B4">today</text>
+              <text x="1440" y="408">+10d</text>
+            </g>
+            <g>
+              <path id="signalMoodsConeFill" fill="url(#moodsConeGrad)"></path>
+              <path id="signalMoodsConeCenter" fill="none" stroke="#9FE6DD" stroke-opacity="0.5" stroke-width="2" stroke-dasharray="3 9" stroke-linecap="round"></path>
+              <path id="signalMoodsConeUpper" fill="none" stroke="#9FE6DD" stroke-opacity="0.6" stroke-width="1.5" stroke-linecap="round"></path>
+            </g>
+            <path id="signalMoodsLine" fill="none" stroke="#1AA396" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle id="signalMoodsTodayHalo" fill="#1AA396" opacity="0.18"></circle>
+            <circle id="signalMoodsTodayDot" class="today-dot" r="6.5" fill="#F4FBFA"></circle>
+            <g transform="translate(192,116)">
+              <text x="0" y="0" class="mono" font-size="11" fill="#7C9A98">right now</text>
+              <circle id="signalMoodsStateDot" cx="9" cy="40" r="7" fill="#1AA396"></circle>
+              <text id="signalMoodsWordSteady" x="28" y="50" class="serif" font-size="40" fill="#1AA396">Steady</text>
+              <text id="signalMoodsWordWired" x="28" y="50" class="serif" font-size="40" fill="#D9657A" opacity="0">Wired</text>
+              <text id="signalMoodsWordLow" x="28" y="50" class="serif" font-size="40" fill="#6E72C0" opacity="0">Low</text>
+            </g>
+            <text x="192" y="632" font-family='Instrument Sans, sans-serif' font-size="18" font-weight="500" fill="#7C9A98" letter-spacing="0.01em">BipolarAware</text>
+          </svg>
+        </div>
+        <p class="demo-caption">Your signal sways between three moods — always measured against what's normal for you, not a generic threshold.</p>
+      </div>
     </div>
   </section>
 
@@ -295,22 +357,51 @@
         <div>
           <span class="scout-badge">AI companion · on your device</span>
           <h2>Meet Scout — your vigilant, respectful guide.</h2>
-          <p class="lead">BipolarAware watches passively. Scout is the voice that helps you understand what the data means — the live demo above shows how your outlook catches drift and Scout translates it into plain language you can act on.</p>
+          <p class="lead">BipolarAware watches passively. Scout is the voice that helps you understand what the data means — watch the live card animate beside this copy as it walks through what changed and what you can do next.</p>
           <div class="scout-points">
             <div class="scout-point"><span class="dot"></span><p>Explains why something was flagged — sleep, activity, rhythm — against your personal baseline, not a generic threshold.</p></div>
             <div class="scout-point"><span class="dot"></span><p>Helps you build a clear trend summary for appointments, so your care team sees objective changes alongside how you feel.</p></div>
             <div class="scout-point"><span class="dot"></span><p>Supportive, never alarming. Scout nudges when something seems off — it doesn't diagnose, and you stay in control of every alert.</p></div>
           </div>
         </div>
-        <div class="scout-card" aria-hidden="true">
-          <p class="who">Scout</p>
-          <p class="tagline">When the outlook needs words.</p>
-          <div class="scout-chat">
-            <div class="scout-bubble scout">Heads up: your sleep and activity patterns look different than usual this week — that can sometimes happen before a mood shift. Worth a glance, not a verdict.</div>
-            <div class="scout-bubble you">What's actually changed?</div>
-            <div class="scout-bubble scout">You've averaged 4½ hours of sleep the last three nights (your baseline is 7), and your step count jumped sharply. Protecting tonight's routine is the highest-leverage move. Want help drafting a note for your clinician?</div>
+        <div class="scout-demo reveal" id="scout-demo" aria-label="Animated Scout card with sleep and activity readouts">
+          <div class="scout-demo__card" id="scoutDemoCard">
+            <header class="head" data-r="head">
+              <span class="avatar"></span>
+              <span class="serif name">Scout</span>
+              <span class="mono tag">
+                <svg class="lock" viewBox="0 0 11 12" fill="none" aria-hidden="true">
+                  <rect x="1" y="5" width="9" height="6.2" rx="1.4" fill="currentColor"></rect>
+                  <path d="M3 5V3.4a2.5 2.5 0 0 1 5 0V5" stroke="currentColor" stroke-width="1.1" fill="none"></path>
+                </svg>
+                On your device
+              </span>
+            </header>
+            <div class="msg">
+              <p class="line" data-r="msg0">Heads up — your sleep and activity look different than usual this week.</p>
+              <p class="line" data-r="msg1">That can sometimes come before a mood shift.</p>
+              <p class="line" data-r="msg2"><span class="soft">Worth a glance, not a verdict.</span></p>
+            </div>
+            <div class="readout">
+              <div class="stat" data-r="stat0">
+                <span class="mono k">Sleep</span>
+                <span class="mono v"><b>4.5h</b> &nbsp;·&nbsp; <span class="base">baseline 7h</span></span>
+                <span class="mono mark"><span class="dot"></span>↓ below</span>
+              </div>
+              <div class="stat" data-r="stat1">
+                <span class="mono k">Activity</span>
+                <span class="mono v"><span class="base">vs. your rhythm</span></span>
+                <span class="mono mark"><span class="dot"></span>↑ sharply</span>
+              </div>
+            </div>
+            <p class="followup" data-r="follow"><b>Protecting tonight's routine</b> is the highest-leverage move.</p>
+            <div class="chips">
+              <button type="button" class="chip" data-r="chip0" tabindex="-1" aria-hidden="true"><span class="hl"></span><span>What changed?</span></button>
+              <button type="button" class="chip" data-r="chip1" tabindex="-1" aria-hidden="true"><span class="hl"></span><span>Draft a clinician note</span></button>
+              <button type="button" class="chip" data-r="chip2" tabindex="-1" aria-hidden="true"><span class="hl"></span><span>Remind me tonight</span></button>
+            </div>
+            <p class="mono caption" data-r="cap">Illustrative example · not medical advice</p>
           </div>
-          <p class="scout-note">Illustrative example · not medical advice</p>
         </div>
       </div>
     </div>
@@ -572,5 +663,7 @@
 })();
 </script>
 <script src="/js/signal-demo.js"></script>
+<script src="/js/signal-moods.js"></script>
+<script src="/js/scout-demo.js"></script>
 </body>
 </html>

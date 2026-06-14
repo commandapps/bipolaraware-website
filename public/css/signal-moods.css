@@ -1,0 +1,51 @@
+/* Steady / Wired / Low signal loop */
+.signal-moods {
+  border-radius: 22px;
+  overflow: hidden;
+  background: radial-gradient(120% 120% at 50% 18%, #16252F 0%, #13212B 46%, #0E1A22 100%);
+  box-shadow: 0 44px 90px -42px rgba(19, 33, 43, 0.6);
+  padding: clamp(16px, 2.5vw, 28px);
+}
+
+.signal-moods svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.signal-moods .today-dot {
+  filter: drop-shadow(0 0 8px rgba(234, 243, 242, 0.5));
+}
+
+.signal-moods .serif {
+  font-family: "Newsreader", Georgia, serif;
+  font-weight: 500;
+}
+
+.signal-moods .mono {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+.demo-block {
+  margin-top: clamp(40px, 5vw, 64px);
+}
+
+.demo-block:first-child {
+  margin-top: clamp(28px, 4vw, 40px);
+}
+
+.demo-label {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--signal-deep);
+  margin: 0 0 14px;
+}
+
+.demo-caption {
+  margin: 14px 0 0;
+  font-size: 0.92rem;
+  color: var(--slate);
+  max-width: 62ch;
+}
