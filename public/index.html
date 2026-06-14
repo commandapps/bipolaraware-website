@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="/css/signal-demo.css" />
 <link rel="stylesheet" href="/css/scout-demo.css" />
 <link rel="stylesheet" href="/css/share-demo.css" />
+<link rel="stylesheet" href="/css/window-demo.css" />
 </head>
 <body id="top">
 
@@ -148,6 +149,60 @@
         <p class="eyebrow">The hard part</p>
         <h2>An episode is far easier to handle early. The early signs are the hardest to see <span style="color:var(--ember)">from the inside.</span></h2>
         <p class="lead">By the time a shift is obvious, you've often lost the window where small adjustments do the most good. Research shows activity and circadian changes can appear days before a full episode — but they're easy to miss from the inside. BipolarAware exists to surface that drift early, while there's still room to act.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WINDOW -->
+  <section class="section" id="window" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">The window</p>
+        <h2>Same drift. Two very different outcomes.</h2>
+        <p class="lead">The opening signs of a mood shift look the same whether you catch them early or miss them — but what happens next is not. A small adjustment while you're still steady costs far less than rebuilding after work, relationships, finances, and health have already taken the hit.</p>
+      </div>
+      <div class="window-demo reveal" id="window-demo" aria-label="Animated chart comparing catching a mood shift early versus late">
+        <div class="frame" id="windowDemoRoot">
+          <svg id="windowDemoStage" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Two signal lines share the same gentle opening drift from a steady baseline. Caught early, the line takes a small nudge and settles. Caught late, the same drift climbs beyond view and then descends through the baseline into a long, slow low before beginning its way back.">
+            <defs>
+              <linearGradient id="windowDemoFillEarly" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#1AA396" stop-opacity="0.16"></stop>
+                <stop offset="100%" stop-color="#1AA396" stop-opacity="0.01"></stop>
+              </linearGradient>
+            </defs>
+            <g stroke="#FFFFFF" stroke-opacity="0.10">
+              <line x1="200" y1="500" x2="1430" y2="500" stroke-width="1.2" stroke-dasharray="2 8"></line>
+              <line x1="200" y1="490" x2="200" y2="510" stroke-width="1.2"></line>
+              <line x1="815" y1="486" x2="815" y2="514" stroke-width="1.2"></line>
+              <line x1="1430" y1="490" x2="1430" y2="510" stroke-width="1.2"></line>
+            </g>
+            <text x="500" y="540" class="mono" font-size="11.5" fill="#7C9A98" text-anchor="middle" opacity="0.7">Steady</text>
+            <g id="windowDemoImpacts" text-anchor="end">
+              <text data-imp="" x="1418" y="150" class="mono" font-size="13" fill="#A7B8C6" opacity="0">Relationships</text>
+              <text data-imp="" x="1418" y="196" class="mono" font-size="13" fill="#A7B8C6" opacity="0">Work</text>
+              <text data-imp="" x="1418" y="242" class="mono" font-size="13" fill="#A7B8C6" opacity="0">Finances</text>
+              <text data-imp="" x="1418" y="288" class="mono" font-size="13" fill="#A7B8C6" opacity="0">Health</text>
+            </g>
+            <path id="windowDemoFillEarlyPath" fill="url(#windowDemoFillEarly)"></path>
+            <path id="windowDemoLineEarly" fill="none" stroke="#1AA396" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path id="windowDemoLineLate" fill="none" stroke="#6E72C0" stroke-opacity="0.82" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle id="windowDemoNudgeRing" fill="none" stroke="#1AA396" stroke-width="2"></circle>
+            <circle id="windowDemoNudgeDot" r="4.5" fill="#1AA396"></circle>
+            <circle id="windowDemoMissDot" r="3.4" fill="#E35B76" opacity="0"></circle>
+            <circle id="windowDemoDotEarly" r="6" fill="#EAF3F2"></circle>
+            <circle id="windowDemoDotLate" r="6" fill="#C9CBE8"></circle>
+            <g id="windowDemoLabEarly" opacity="0">
+              <text x="210" y="372" class="serif" font-size="33" fill="#EAF3F2">Caught early</text>
+              <text id="windowDemoCapEarly" x="210" y="400" class="mono" font-size="12.5" fill="#1AA396" opacity="0">Small adjustment, while there's room</text>
+            </g>
+            <g id="windowDemoLabLate" opacity="0">
+              <text x="980" y="838" class="serif" font-size="33" fill="#EAF3F2">Caught late</text>
+              <text id="windowDemoCapLate" x="980" y="866" class="mono" font-size="12.5" fill="#9398CE" opacity="0">A longer, harder way back</text>
+            </g>
+            <text id="windowDemoThroughline" x="800" y="958" text-anchor="middle" class="serif" font-size="33" fill="#EAF3F2" opacity="0">The signs are the same. The head start is everything.</text>
+            <text x="1430" y="958" text-anchor="end" class="mono" font-size="12" fill="#7C9A98" opacity="0.6">BipolarAware</text>
+          </svg>
+        </div>
       </div>
     </div>
   </section>
@@ -530,5 +585,6 @@
 <script src="/js/signal-demo.js"></script>
 <script src="/js/scout-demo.js"></script>
 <script src="/js/share-demo.js"></script>
+<script src="/js/window-demo.js"></script>
 </body>
 </html>

@@ -1,0 +1,38 @@
+/* Animated Window chart — early vs late catch */
+.window-demo {
+  border-radius: 22px;
+  overflow: hidden;
+  background: radial-gradient(120% 120% at 50% 16%, #16252F 0%, #13212B 48%, #0E1A22 100%);
+  padding: clamp(20px, 3vw, 36px);
+  margin-top: clamp(28px, 4vw, 40px);
+}
+
+.window-demo .frame {
+  width: 100%;
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
+.window-demo svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: hidden;
+}
+
+.window-demo .mono {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.window-demo .serif {
+  font-family: "Newsreader", Georgia, serif;
+  font-weight: 500;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .window-demo .frame {
+    opacity: 1 !important;
+  }
+}
