@@ -4,18 +4,21 @@
   width: 100%;
   border-radius: 22px;
   overflow: hidden;
-  background: radial-gradient(120% 120% at 50% 16%, #16252F 0%, #13212B 46%, #0E1A22 100%);
-  box-shadow: 0 44px 90px -42px rgba(19, 33, 43, 0.6);
+}
+
+.signal-demo--hero {
+  background: transparent;
+  box-shadow: none;
 }
 
 .signal-demo__viewport {
   position: relative;
   width: 100%;
-  height: clamp(300px, 46vw, 520px);
 }
 
 .signal-demo--hero .signal-demo__viewport {
-  height: clamp(340px, 52vw, 500px);
+  aspect-ratio: 912 / 560;
+  height: auto;
 }
 
 .signal-demo__stage {
@@ -50,6 +53,10 @@
   border: 1px solid rgba(159, 230, 221, 0.08);
   border-radius: 22px;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03), 0 30px 70px -40px rgba(0, 0, 0, 0.7);
+}
+
+.signal-demo--hero .card.outlook {
+  box-shadow: 0 44px 90px -42px rgba(19, 33, 43, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .signal-demo .outlook {
@@ -202,13 +209,6 @@
   background: #1AA396;
   box-shadow: 0 0 18px -2px rgba(26, 163, 150, 0.45);
   transition: transform 0.15s ease, width 0.15s ease;
-}
-
-@media (max-width: 920px) {
-  .signal-demo__viewport,
-  .signal-demo--hero .signal-demo__viewport {
-    height: clamp(280px, 78vw, 420px);
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
