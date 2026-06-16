@@ -20,6 +20,8 @@
   margin: 0 auto;
   width: min(100%, 400px);
   aspect-ratio: 9 / 16;
+  height: auto;
+  min-height: 480px;
   max-height: min(74vh, 720px);
   border-radius: 28px;
   overflow: hidden;
