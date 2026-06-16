@@ -1,0 +1,47 @@
+/* Launch film — portrait product story above early-access signup */
+.launch-demo {
+  margin: 0 auto clamp(36px, 5vw, 52px);
+  max-width: 920px;
+}
+
+.launch-demo__intro {
+  text-align: center;
+  margin-bottom: clamp(20px, 3vw, 28px);
+}
+
+.launch-demo__intro p {
+  color: var(--slate);
+  font-size: 0.98rem;
+  max-width: 42ch;
+  margin: 0 auto;
+}
+
+.launch-demo__frame {
+  margin: 0 auto;
+  width: min(100%, 400px);
+  aspect-ratio: 9 / 16;
+  max-height: min(74vh, 720px);
+  border-radius: 28px;
+  overflow: hidden;
+  background: radial-gradient(120% 120% at 50% 16%, #16252F 0%, #13212B 48%, #0E1A22 100%);
+  box-shadow:
+    0 40px 80px -40px rgba(19, 33, 43, 0.5),
+    inset 0 1px 0 rgba(159, 230, 221, 0.08);
+  border: 1px solid rgba(159, 230, 221, 0.12);
+}
+
+.launch-demo__frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  background: #13212B;
+}
+
+@media (max-width: 480px) {
+  .launch-demo__frame {
+    width: 100%;
+    border-radius: 22px;
+    max-height: min(68vh, 640px);
+  }
+}
