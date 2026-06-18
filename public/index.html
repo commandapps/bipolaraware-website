@@ -490,14 +490,23 @@
       <div class="launch-demo reveal">
         <div class="launch-demo__intro">
           <p class="eyebrow" style="text-align:center;margin-bottom:12px">The product</p>
-          <p>Sixty seconds through BipolarAware — from the first quiet signs to Scout, your baseline, and staying ahead of a shift.</p>
+          <p>Take BipolarAware for a spin — tap through the app to see how it surfaces drift, explains it with Scout, and helps you stay ahead of a shift.</p>
         </div>
-        <div class="launch-demo__frame">
-          <iframe
-            src="/launch-film"
-            title="BipolarAware launch film — product walkthrough from early signs to Scout and stability"
-            loading="lazy"
-          ></iframe>
+        <div class="launch-demo__frame" id="appDemoFrame" data-src="/app-demo">
+          <button type="button" class="launch-demo__poster" id="appDemoLaunch" aria-label="Launch the interactive BipolarAware demo">
+            <svg class="launch-demo__poster-art" viewBox="0 0 1200 800" aria-hidden="true">
+              <rect width="1200" height="800" fill="#13212B"></rect>
+              <rect x="470" y="150" width="260" height="500" rx="56" fill="#0c161c" stroke="#9FE6DD" stroke-opacity="0.18" stroke-width="3"></rect>
+              <rect x="492" y="172" width="216" height="456" rx="38" fill="#EFF3F3"></rect>
+              <path d="M512 430c34 0 46-70 68-70s28 92 50 92 30-66 52-66 16 30 34 30" fill="none" stroke="#1AA396" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+              <circle cx="600" cy="300" r="30" fill="#1AA396"></circle>
+            </svg>
+            <span class="launch-demo__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M8 5.5v13l11-6.5z" fill="currentColor"></path></svg>
+            </span>
+            <span class="launch-demo__poster-label">Launch interactive demo</span>
+            <span class="launch-demo__poster-note mono">Loads in this frame · ~2&nbsp;MB</span>
+          </button>
         </div>
       </div>
       <div class="cta-final reveal">
@@ -594,6 +603,20 @@
   }
   wire("hero-form","hero-email","hero-note");
   wire("cta-form","cta-email","cta-note");
+
+  /* gate the heavy interactive demo behind a click */
+  var demoFrame=document.getElementById("appDemoFrame");
+  var demoLaunch=document.getElementById("appDemoLaunch");
+  if(demoFrame && demoLaunch){
+    demoLaunch.addEventListener("click",function(){
+      var iframe=document.createElement("iframe");
+      iframe.src=demoFrame.getAttribute("data-src");
+      iframe.title="BipolarAware interactive demo — tap through the app from early signs to Scout and stability";
+      iframe.setAttribute("allow","fullscreen");
+      demoFrame.classList.add("is-loaded");
+      demoFrame.replaceChild(iframe, demoLaunch);
+    });
+  }
 })();
 </script>
 <script src="/js/signal-demo.js"></script>

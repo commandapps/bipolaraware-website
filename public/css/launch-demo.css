@@ -40,6 +40,85 @@
   background: #13212B;
 }
 
+/* Click-to-load poster (avoids loading the heavy demo for every visitor) */
+.launch-demo__poster {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  color: #EAF3F2;
+  font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.launch-demo__poster-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+  transition: opacity 0.3s ease, transform 0.4s ease;
+}
+
+.launch-demo__play {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  color: #13212B;
+  background: #9FE6DD;
+  box-shadow: 0 12px 30px -10px rgba(159, 230, 221, 0.6);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.launch-demo__play svg {
+  width: 30px;
+  height: 30px;
+  margin-left: 3px;
+}
+
+.launch-demo__poster-label {
+  position: relative;
+  font-weight: 600;
+  font-size: 1.02rem;
+  letter-spacing: -0.01em;
+}
+
+.launch-demo__poster-note {
+  position: relative;
+  font-size: 0.72rem;
+  color: #9FB6B4;
+}
+
+.launch-demo__poster:hover .launch-demo__poster-art,
+.launch-demo__poster:focus-visible .launch-demo__poster-art {
+  opacity: 0.62;
+  transform: scale(1.02);
+}
+
+.launch-demo__poster:hover .launch-demo__play,
+.launch-demo__poster:focus-visible .launch-demo__play {
+  transform: scale(1.08);
+  background: #B6F0E8;
+}
+
+.launch-demo__poster:focus-visible {
+  outline: 2px solid #9FE6DD;
+  outline-offset: 3px;
+}
+
 @media (max-width: 480px) {
   .launch-demo__frame {
     width: 100%;
